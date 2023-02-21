@@ -38,16 +38,13 @@ contract VRFv2Consumer is VRFConsumerBaseV2, ConfirmedOwner {
 
     uint32 numWords = 2;
 
-    constructor(
-        uint64 subscriptionId
-    )
-        VRFConsumerBaseV2(0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D)
+    constructor() VRFConsumerBaseV2(0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D)
         ConfirmedOwner(msg.sender)
     {
         COORDINATOR = VRFCoordinatorV2Interface(
             0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D
         );
-        s_subscriptionId = subscriptionId;
+        s_subscriptionId = 10099;
     }
 
     // Assumes the subscription is funded sufficiently.

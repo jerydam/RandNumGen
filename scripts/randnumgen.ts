@@ -3,7 +3,7 @@ import { ethers } from "hardhat";
 async function main() {
 
   const owner = await ethers.getSigners();
-  const Random = await ethers.getContractFactory("randomnumber");
+  const Random = await ethers.getContractFactory("VRFv2Consumer");
   const random = await Random.deploy();
   await random.deployed();
 
@@ -13,7 +13,7 @@ async function main() {
   const randwords = await random.requestRandomWords();
   console.log(randwords);
 
-  const randstatus = await random.getRequestStatus(randwords);
+  const randstatus = await random.getRequestStatus(0);
   console.log(randstatus);
     
 }
